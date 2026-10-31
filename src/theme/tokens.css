@@ -1,0 +1,90 @@
+/*
+ * Panadería design tokens — three layers (see DESIGN.md).
+ * 1 primitives → 2 semantic roles → 3 component tokens.
+ * `--brand*` and `--font-display` are set at run time from the store's branding.
+ */
+:root {
+  /* 1 · Primitives — Vitrina */
+  --pn-flour: #FFFDF9;
+  --pn-mint: #CFE8DA;
+  --pn-mint-soft: #E8F4EC;
+  --pn-choc: #4A2A1C;
+  --pn-choc-lift: #5A3726;
+  --pn-choc-soft: #7A5A48;
+  --pn-butter: #F3D27A;
+  --pn-crust: #9E5524;
+  --pn-rose: #F7D9DE;
+  --pn-raspberry: #A12D47;
+  --pn-white: #FFFFFF;
+
+  /* 2 · Semantic */
+  --surface: var(--pn-flour);
+  --surface-quiet: var(--pn-mint-soft);
+  --surface-raised: var(--pn-white);
+  --surface-deep: var(--pn-choc);
+  --surface-deep-raised: var(--pn-choc-lift);
+  --ink: var(--pn-choc);
+  --ink-soft: var(--pn-choc-soft);
+  --ink-on-deep: var(--pn-flour);
+  --ink-on-deep-soft: #E8D6C6;
+  --heading: var(--pn-choc);
+  --rule: color-mix(in srgb, var(--pn-choc) 15%, transparent);
+  --rule-on-deep: color-mix(in srgb, var(--pn-flour) 22%, transparent);
+  --accent: var(--brand, var(--pn-crust));
+  --accent-ink: var(--brand-ink, var(--pn-white));
+  --accent-text: var(--brand-text, var(--pn-crust));
+  --accent-2: var(--brand-2, var(--pn-mint));
+  --accent-2-ink: var(--brand-2-ink, var(--pn-choc));
+  --offer: var(--pn-raspberry);
+  --offer-ink: var(--pn-white);
+  --danger: var(--pn-raspberry);
+  --success: #2F6B4A;
+  --focus: var(--pn-choc);
+  --focus-on-deep: var(--pn-butter);
+  --scrim: rgb(46 26 17 / 0.55);
+
+  /* 3 · Component */
+  --font-display: "Caprasimo", "Noto Serif", Georgia, serif;
+  --font-text: "Rethink Sans", "Noto Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius-frame: 1.5rem;
+  --radius-frame-sm: 1rem;
+  --radius-bun: 50% 50% 22% 22% / 44% 44% 16% 16%;
+  --radius-pill: 999px;
+  --box-stripe: var(--pn-mint);
+  --box-paper: var(--pn-white);
+  --steam: rgb(74 42 28 / 0.34);
+  --shadow-soft: 0 1px 2px rgb(74 42 28 / 0.08), 0 14px 30px -18px rgb(74 42 28 / 0.4);
+  --shadow-lift: 0 2px 4px rgb(74 42 28 / 0.1), 0 26px 44px -22px rgb(74 42 28 / 0.5);
+  --tap: 2.75rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --max: 76rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  --dur-enter: 260ms;
+  --dur-exit: 170ms;
+}
+
+/* After closing time: chocolate dark, warm flour text, butter highlights. */
+:root[data-color-scheme='dark'] {
+  --surface: #1F1611;
+  --surface-quiet: #2A1E17;
+  --surface-raised: #35271E;
+  --surface-deep: #130D0A;
+  --surface-deep-raised: #2C1D15;
+  --ink: #FBEFE3;
+  --ink-soft: #D9C2AE;
+  --ink-on-deep: #FBEFE3;
+  --ink-on-deep-soft: #D9C2AE;
+  --heading: #FBEFE3;
+  --rule: rgb(251 239 227 / 0.2);
+  --offer: #F08BA0;
+  --offer-ink: #1F1611;
+  --danger: #F08BA0;
+  --success: #9CCBB0;
+  --focus: #F3D27A;
+  --box-stripe: #3E5B4C;
+  --box-paper: #2A1E17;
+  --steam: rgb(251 239 227 / 0.3);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 14px 30px -18px rgb(0 0 0 / 0.7);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.45), 0 26px 44px -22px rgb(0 0 0 / 0.8);
+}
