@@ -97,7 +97,7 @@ export function Header() {
 
         <ThemeToggle />
 
-        <button type="button" onClick={openCart} className="btn btn-strong shrink-0 !gap-1.5 !px-2 sm:!px-3">
+        <button id="store-cart-trigger" type="button" onClick={openCart} className="btn btn-strong shrink-0 !gap-1.5 !px-2 sm:!px-3">
           <ShoppingBag key={adds} aria-hidden="true" className={`h-5 w-5 ${adds ? 'basket-settle' : ''}`} />
           <span className="hidden sm:inline">{t('nav.cart')}</span>
           <span aria-hidden="true" className="grid h-6 min-w-6 place-items-center rounded-full bg-[color:var(--pn-butter)] px-1.5 text-sm font-bold tabular-nums text-[color:var(--pn-choc)]">

@@ -62,7 +62,7 @@ export default function Home() {
         </div>
         {home.hero.image && (
           <div className="md:col-span-6">
-            <div className="relative mx-auto w-[min(32rem,88vw)] pt-[clamp(4.5rem,8vw,6rem)]">
+            <div className="relative mx-auto w-[min(32rem,88vw)] max-w-full pt-[clamp(4.5rem,8vw,6rem)]">
               <Steam className="absolute left-1/2 top-1 h-[clamp(4.5rem,8vw,6rem)] -translate-x-1/2" />
               <div className="rise bun relative aspect-[5/4] bg-surface-quiet shadow-lift">
                 <StoreImage src={home.hero.image} alt="" priority sizes="(min-width: 768px) 32rem, 88vw" maxWidth={1200} fallback={<Placeholder />} />
@@ -147,14 +147,14 @@ export default function Home() {
         <section className="page pt-24">
           <ul className="grid gap-4 md:grid-cols-3 md:gap-6">
             {home.benefits.map((benefit) => (
-              <li key={benefit.title} className="flex gap-4 rounded-frame bg-surface-quiet p-6">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-surface-raised text-accent-text shadow-soft">
-                  <CmsIcon icon={benefit.icon} className="h-5 w-5" strokeWidth={1.9} />
-                </span>
-                <div>
-                  <h3 className="text-xl text-heading">{benefit.title}</h3>
-                  {benefit.description && <p className="mt-1 text-ink-soft">{benefit.description}</p>}
+              <li key={benefit.title} className="flex flex-col gap-3 rounded-frame bg-surface-quiet p-6">
+                <div className="flex items-center gap-3">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-surface-raised text-accent-text shadow-soft">
+                    <CmsIcon icon={benefit.icon} className="h-5 w-5" strokeWidth={1.9} />
+                  </span>
+                  <h3 className="min-w-0 text-xl text-heading">{benefit.title}</h3>
                 </div>
+                {benefit.description && <p className="mt-1 text-ink-soft">{benefit.description}</p>}
               </li>
             ))}
           </ul>

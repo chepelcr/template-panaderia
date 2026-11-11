@@ -18,7 +18,7 @@ export default function About() {
         <div className={about.hero.image ? 'md:col-span-7' : 'md:col-span-10'}>
           {cms.isLoading ? (
             <div aria-hidden="true" className="flex flex-col gap-3">
-              <div className="skeleton h-14 w-64" />
+              <div className="skeleton h-14 w-64 max-w-full" />
               <div className="skeleton h-5 w-80 max-w-full" />
             </div>
           ) : cms.isError ? (
@@ -32,7 +32,7 @@ export default function About() {
         </div>
         {about.hero.image && (
           <div className="md:col-span-5">
-            <div className="bun mx-auto aspect-[5/4] w-[min(30rem,88vw)] bg-surface-quiet shadow-lift">
+            <div className="bun mx-auto aspect-[5/4] w-[min(30rem,88vw)] max-w-full bg-surface-quiet shadow-lift">
               <StoreImage src={about.hero.image} alt="" priority sizes="(min-width: 768px) 30rem, 88vw" maxWidth={1100} fallback={<Placeholder />} />
             </div>
           </div>
@@ -65,10 +65,12 @@ export default function About() {
               {about.values.items.map((value) => (
                 <li key={value.title} className="flex flex-col gap-3 overflow-hidden rounded-frame bg-surface-raised p-7 pt-0 shadow-soft">
                   <span aria-hidden="true" className="box-stripes -mx-7 mb-3 block h-3" />
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-surface-quiet text-accent-text">
-                    <CmsIcon icon={value.icon} className="h-5 w-5" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="text-xl text-heading">{value.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-surface-quiet text-accent-text shrink-0">
+                      <CmsIcon icon={value.icon} className="h-5 w-5" strokeWidth={1.8} />
+                    </span>
+                    <h3 className="text-xl text-heading min-w-0">{value.title}</h3>
+                  </div>
                   {value.description && <p className="text-ink-soft">{value.description}</p>}
                 </li>
               ))}
